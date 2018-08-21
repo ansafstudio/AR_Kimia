@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Script\Autofocus.cs" />
+     <Compile Include="Assets\Script\LineGenerator.cs" />
      <Compile Include="Assets\Script\MenuMgr.cs" />
      <Compile Include="Assets\Script\RotatePlanet.cs" />
      <Compile Include="Assets\Script\TrackableList.cs" />

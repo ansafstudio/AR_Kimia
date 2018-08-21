@@ -11,6 +11,8 @@ public class MultiMarkerMgr : MonoBehaviour {
 	public GameObject H20;
 	public GameObject NH3;
 
+	public LineGenerator lineGen;
+
 	// Use this for initialization
 	void Start () {
 		
@@ -67,6 +69,12 @@ public class MultiMarkerMgr : MonoBehaviour {
 			for (int i = 0; i < atoms.Length; i++) {
 				atoms [i].SetActive (true);
 			}
+
+			/*LineGenerator lineGen2 = new LineGenerator;
+
+			lineGen2.pointA = atoms [0].transform.position;
+			lineGen2.pointB = atoms [1].transform.position;
+			lineGen2.InstantiateSegments();*/
 		}
 		
 	}
