@@ -15,7 +15,9 @@ public class MultiMarkerMgr : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+		lineGen.pointA = atoms [0].transform.position;
+		lineGen.pointB = atoms [1].transform.position;
+		lineGen.InstantiateSegments();
 	}
 	
 	// Update is called once per frame
@@ -70,11 +72,10 @@ public class MultiMarkerMgr : MonoBehaviour {
 				atoms [i].SetActive (true);
 			}
 
-			/*LineGenerator lineGen2 = new LineGenerator;
 
-			lineGen2.pointA = atoms [0].transform.position;
-			lineGen2.pointB = atoms [1].transform.position;
-			lineGen2.InstantiateSegments();*/
+			//LineGenerator lineGen2 = new LineGenerator();
+
+
 		}
 		
 	}
