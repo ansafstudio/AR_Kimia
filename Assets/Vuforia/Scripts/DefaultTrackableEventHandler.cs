@@ -21,6 +21,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
     #endregion // PRIVATE_MEMBER_VARIABLES
 
 	public AudioSource sound;
+	public AudioSource soundNH3;
+	public AudioSource soundBeCl2;
+	public AudioSource soundBF3;
+	public AudioSource soundH2O;
+	bool isPlayedSound = false;
+
 	public static bool F = false;
 	public static bool F2 = false;
 	public static bool F3 = false;
@@ -63,7 +69,12 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " found");
             OnTrackingFound();
 
-			sound.Play ();
+			PlaySound ();
+			if (!isPlayedSound) {
+				sound.Play ();	
+			}
+
+
         }
         else if (previousStatus == TrackableBehaviour.Status.TRACKED &&
                  newStatus == TrackableBehaviour.Status.NOT_FOUND)
@@ -72,6 +83,11 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             OnTrackingLost();
 
 			sound.Stop ();
+			soundBeCl2.Stop ();
+			soundBF3.Stop ();
+			soundH2O.Stop ();
+			soundNH3.Stop ();
+			isPlayedSound = false;
         }
         else
         {
@@ -81,6 +97,34 @@ public class DefaultTrackableEventHandler : MonoBehaviour, ITrackableEventHandle
             OnTrackingLost();
         }
     }
+
+	public void PlaySound()
+	{
+		if (DefaultTrackableEventHandler.Be && DefaultTrackableEventHandler.Cl && DefaultTrackableEventHandler.Cl2) {
+			isPlayedSound = true;
+			soundBeCl2.Play ();
+		}
+
+		if (DefaultTrackableEventHandler.B && DefaultTrackableEventHandler.F && DefaultTrackableEventHandler.F2 && DefaultTrackableEventHandler.F3) {
+			isPlayedSound = true;
+			soundBF3.Play ();
+
+		} 
+
+		if (DefaultTrackableEventHandler.H && DefaultTrackableEventHandler.H2 && DefaultTrackableEventHandler.O) {
+			isPlayedSound = true;
+			soundH2O.Play ();
+
+		}
+
+		if (DefaultTrackableEventHandler.H	&& DefaultTrackableEventHandler.H2 && DefaultTrackableEventHandler.H3 && DefaultTrackableEventHandler.N
+		) {
+			isPlayedSound = true;
+			soundNH3.Play ();
+
+		}
+
+	}
 
     #endregion // PUBLIC_METHODS
 
